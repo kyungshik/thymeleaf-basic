@@ -97,6 +97,35 @@ public class BasicController {
         return "basic/operation";
     }
 
+    @GetMapping("/attribute")
+    public String attribute() {
+        return "basic/attribute";
+    }
+
+    @GetMapping("/each")
+    public String each(Model model) {
+        addUsers(model);
+        return "basic/each";
+    }
+
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        addUsers(model);
+        return "basic/condition";
+    }
+
+    public void addUsers(Model model) {
+        ArrayList<User> list = new ArrayList<>();
+        list.add(new User("user1", 10));
+        list.add(new User("user2", 20));
+        list.add(new User("userB", 23));
+        list.add(new User("userC", 27));
+        list.add(new User("userA", 29));
+        list.add(new User("user3", 30));
+
+        model.addAttribute("users", list);
+
+    }
 
 
     @Data
