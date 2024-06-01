@@ -114,6 +114,18 @@ public class BasicController {
         return "basic/condition";
     }
 
+    @GetMapping("/comments")
+    public String comments(Model model) {
+        model.addAttribute("data", "Spring!");
+        return "basic/comments";
+    }
+
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUsers(model);
+        return "basic/block";
+    }
+
     public void addUsers(Model model) {
         ArrayList<User> list = new ArrayList<>();
         list.add(new User("user1", 10));
